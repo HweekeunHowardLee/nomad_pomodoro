@@ -9,8 +9,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  static const defaultSeconds = 100;
-  int totalSeconds = defaultSeconds;
+  int defaultSeconds = 1200;
+  int totalSeconds = 1200;
   int totalPomodoro = 0;
   bool timerOn = false;
   double _seconds = 30;
@@ -109,11 +109,12 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Slider(
               value: _seconds,
               min: 0,
-              max: 300, // Adjust the maximum duration as needed
-              divisions: 300, // Make it increments by 1
-              activeColor: Colors.grey[800],
+              max: 1200, // Adjust the maximum duration as needed
+              divisions: 20, // Make it increments by 1
+              activeColor: Colors.indigo[600],
               onChanged: (double value) {
                 setState(() {
+                  defaultSeconds = value.toInt();
                   totalSeconds = value.toInt();
                   _seconds = value;
                 });
